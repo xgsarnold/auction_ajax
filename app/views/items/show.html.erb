@@ -7,10 +7,13 @@
 <h1>
   <%= @item.name %>
 </h1>
+
 <div class="small-4 columns">
   <%= image_tag @item.image_url, class: "featured" %>
 </div>
+
 <div class="small-4 columns">
+
   <p>
     <%= @item.description %>
   </p>
@@ -19,8 +22,16 @@
     Starting price:
     <%= number_to_currency(@item.starting_price) %>
   </p>
-  <%= render partial: 'highest_bid', locals: {bid: @bid}%>
-  <%= render partial: 'bid', locals: {bid: @bid}%>
+
+  <span id="top-bid">
+    <%= render partial: "highest_bid", locals: {bid: @bid }%>
+  </span>
+
+  <span id="current-bid">
+    <%= render partial: "bid", locals: {bid: @bid} %>
+  </span>
+
 </div>
+
 <div class="small-4 columns">
 </div>
